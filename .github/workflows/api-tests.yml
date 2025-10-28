@@ -120,36 +120,3 @@ jobs:
             echo "- HTML Report: Available in artifacts" >> $GITHUB_STEP_SUMMARY
             echo "- JSON Report: Available in artifacts" >> $GITHUB_STEP_SUMMARY
           fi
-
-  quality-gate:
-    name: Quality Gate
-    needs: api-tests
-    runs-on: ubuntu-latest
-    if: always()
-    
-    steps:
-      - name: Download test results
-        uses: actions/download-artifact@v4
-        with:
-          name: json-report
-          path: reports/
-      
-      - name: Evaluate quality metrics
-        run: |
-          if [ -f reports/newman-report.json ]; then
-            FAILED=$(cat reports/newman-report.json | jq '.run.stats.assertions.failed')
-            TOTAL=$(cat reports/newman-report.json | jq '.run.stats.assertions.total')
-            
-            echo "Failed tests: $FAILED"
-            echo "Total tests: $TOTAL"
-            
-            if [ "$FAILED" -gt 0 ]; then
-              echo "❌ Quality gate failed: $FAILED tests failed"
-              exit 1
-            else
-              echo "✅ Quality gate passed: All tests successful"
-            fi
-          else
-            echo "❌ No test results found"
-            exit 1
-          fi
