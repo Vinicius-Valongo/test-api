@@ -1,0 +1,24 @@
+{
+  "name": "user-management-api-tests",
+  "version": "1.0.0",
+  "description": "Testes automatizados para API de gerenciamento de usuários usando ServeRest",
+  "main": "index.js",
+  "scripts": {
+    "test": "newman run postman/User-Management-API.postman_collection.json -e postman/environments/production.postman_environment.json",
+    "test:report": "newman run postman/User-Management-API.postman_collection.json -e postman/environments/production.postman_environment.json -r htmlextra,cli,json --reporter-htmlextra-export reports/newman-report.html --reporter-json-export reports/newman-report.json",
+    "test:ci": "newman run postman/User-Management-API.postman_collection.json -e postman/environments/production.postman_environment.json -r htmlextra,cli,json --reporter-htmlextra-export reports/newman-report.html --reporter-json-export reports/newman-report.json --suppress-exit-code"
+  },
+  "keywords": [
+    "api",
+    "testing",
+    "postman",
+    "newman",
+    "automation"
+  ],
+  "author": "",
+  "license": "MIT",
+  "devDependencies": {
+    "newman": "^6.1.1",
+    "newman-reporter-htmlextra": "^1.23.1"
+  }
+}

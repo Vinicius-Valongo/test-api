@@ -1,0 +1,33 @@
+# Node modules
+node_modules/
+
+# Reports
+reports/
+*.html
+*.json
+!package.json
+!*.postman_collection.json
+!*.postman_environment.json
+
+# Logs
+logs/
+*.log
+npm-debug.log*
+
+# Environment variables
+.env
+.env.local
+
+# OS files
+.DS_Store
+Thumbs.db
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+temp/
