@@ -1,6 +1,5 @@
 # 🚀 User Management API - Automated Testing Suite
 
-[![API Tests](https://github.com/YOUR_USERNAME/user-management-api/actions/workflows/api-tests.yml/badge.svg)](https://github.com/YOUR_USERNAME/user-management-api/actions/workflows/api-tests.yml)
 
 Projeto de testes automatizados para API de gerenciamento de usuários usando **Newman** (Postman CLI) com integração completa de **CI/CD via GitHub Actions**.
 
